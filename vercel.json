@@ -1,0 +1,9 @@
+{
+  "rewrites": [{ "source": "/sitemap.xml", "destination": "/api/sitemap" }],
+  "headers": [
+    {
+      "source": "/admin/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}
