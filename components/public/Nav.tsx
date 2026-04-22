@@ -41,10 +41,10 @@ export function Nav({ items, linkedinUrl }: { items: { label: string; url: strin
           <Link
             href="/"
             aria-label="Home"
-            className="flex items-center gap-2 pl-1.5 pr-3 py-1 rounded-full hover:bg-white/5 transition-colors"
+            className="flex items-center gap-2 pl-1.5 pr-2.5 sm:pr-3 py-1 rounded-full hover:bg-white/5 transition-colors"
           >
             <Monogram />
-            <span className="hidden sm:inline text-[13px] font-semibold tracking-tight text-white">
+            <span className="text-[13px] font-semibold tracking-tight text-white whitespace-nowrap">
               Shoaib Ramani
             </span>
           </Link>

@@ -21,22 +21,22 @@ body {
 
 @layer utilities {
   .text-hero {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.25rem, 6vw, 5rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
   }
   .text-h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 3rem);
     line-height: 1.1;
     letter-spacing: -0.015em;
   }
   .text-h2 {
-    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
-    line-height: 1.15;
+    font-size: clamp(1.25rem, 2.6vw, 2.25rem);
+    line-height: 1.2;
     letter-spacing: -0.01em;
   }
   .text-lead {
-    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    font-size: clamp(0.975rem, 1.3vw, 1.125rem);
     line-height: 1.65;
   }
   .gold-rule {

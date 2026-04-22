@@ -43,7 +43,7 @@ export default async function BlogIndex({
   const catName = (id: number | null) => cats.find((c) => c.id === id)?.name ?? "";
 
   return (
-    <div className="container-page py-16 md:py-24">
+    <div className="container-page py-12 md:py-24">
       <div className="text-center">
         <span className="gold-rule">Insights & Thinking</span>
         <h1 className="mt-4 font-display text-h1 text-navy">Blog</h1>

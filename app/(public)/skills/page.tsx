@@ -12,7 +12,7 @@ export default async function SkillsPage() {
   for (const s of skills) (byCat[s.category] = byCat[s.category] || []).push(s);
 
   return (
-    <div className="container-page py-16 md:py-24">
+    <div className="container-page py-12 md:py-24">
       <div className="text-center">
         <span className="gold-rule">Capabilities</span>
         <h1 className="mt-4 font-display text-h1 text-navy">Skills & Certifications</h1>

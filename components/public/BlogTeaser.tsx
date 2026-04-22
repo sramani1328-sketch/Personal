@@ -15,7 +15,7 @@ type Post = {
 
 export function BlogTeaser({ posts }: { posts: Post[] }) {
   return (
-    <section className="container-page py-20 md:py-28">
+    <section className="container-page py-14 md:py-28">
       <div className="text-center mb-12">
         <span className="gold-rule">Insights & Thinking</span>
       </div>

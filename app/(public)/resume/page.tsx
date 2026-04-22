@@ -10,7 +10,7 @@ export default async function ResumePage() {
   const [resume, settings] = await Promise.all([getActiveResume(), kv(siteSettings)]);
 
   return (
-    <div className="container-page py-16 md:py-24">
+    <div className="container-page py-12 md:py-24">
       <div className="text-center max-w-2xl mx-auto">
         <span className="gold-rule">Resume</span>
         <h1 className="mt-4 font-display text-h1 text-navy">Download My Resume</h1>
@@ -37,7 +37,7 @@ export default async function ResumePage() {
       </div>
 
       {resume ? (
-        <div className="mt-14 max-w-4xl mx-auto rounded-xl overflow-hidden border border-border bg-white shadow-card">
+        <div className="mt-10 md:mt-14 max-w-4xl mx-auto rounded-xl overflow-hidden border border-border bg-white shadow-card hidden sm:block">
           <iframe
             title="Shoaib Ramani Resume"
             src={resume.blobUrl}

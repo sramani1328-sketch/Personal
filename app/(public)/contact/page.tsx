@@ -9,7 +9,7 @@ export const metadata = { title: "Contact" };
 export default async function ContactPage() {
   const settings = await kv(siteSettings);
   return (
-    <div className="container-page py-16 md:py-24">
+    <div className="container-page py-12 md:py-24">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12">
         <div>
           <span className="gold-rule">Get in touch</span>

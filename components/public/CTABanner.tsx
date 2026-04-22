@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 export function CTABanner({ linkedin }: { linkedin: string }) {
   return (
     <section className="bg-dark text-white">
-      <div className="container-page py-20 md:py-24 text-center">
+      <div className="container-page py-14 md:py-24 text-center">
         <h2 className="font-display text-h1 text-white">Let's Build Something Together</h2>
         <p className="mt-4 max-w-xl mx-auto text-white/70 text-lead">
           Open to M&A roles, corporate finance opportunities, and strategic advisory conversations.

@@ -15,7 +15,7 @@ export function ExperienceSnapshot({ items }: { items: Exp[] }) {
   const featured = items.slice(0, 3);
   return (
     <section className="bg-bg">
-      <div className="container-page py-20 md:py-28">
+      <div className="container-page py-14 md:py-28">
         <div className="text-center mb-12">
           <span className="gold-rule">Where I've Built</span>
         </div>
