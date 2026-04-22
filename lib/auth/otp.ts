@@ -21,7 +21,8 @@ export async function issueOtp(adminId: number, email: string) {
     codeHash: hash,
     expiresAt: new Date(Date.now() + OTP_TTL_MIN * 60 * 1000),
   });
-  await sendOtpEmail(email, code);
+  if (process.env.LOCAL_DEV === "1") console.log(`[DEV OTP for ${email}]: ${code}`);
+  try { await sendOtpEmail(email, code); } catch (e) { console.warn("sendOtpEmail failed", (e as Error).message); }
   return { expiresIn: OTP_TTL_MIN * 60 };
 }
 
