@@ -72,13 +72,13 @@ export function Hero({ eyebrow, h1, subheadline, body, primary, secondary, words
             {stats.slice(0, 3).map((s, i) => (
               <div
                 key={i}
-                className={`absolute glass bg-white/90 text-navy rounded-xl px-4 py-3 shadow-card animate-float-slow ${
+                className={`absolute bg-navy text-white rounded-xl px-4 py-3 shadow-cardHover ring-1 ring-gold/40 animate-float-slow ${
                   i === 0 ? "-top-4 -left-6" : i === 1 ? "top-1/2 -right-8" : "-bottom-6 left-4"
                 }`}
                 style={{ animationDelay: `${i * 1.5}s` }}
               >
-                <div className="font-mono text-sm font-bold">{s.number}</div>
-                <div className="text-[11px] text-muted leading-tight">{s.label}</div>
+                <div className="font-display text-xl font-bold text-gold leading-none">{s.number}</div>
+                <div className="mt-1 text-[11px] text-white/75 leading-tight">{s.label}</div>
               </div>
             ))}
           </div>
