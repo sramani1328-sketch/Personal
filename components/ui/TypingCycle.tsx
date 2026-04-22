@@ -29,7 +29,7 @@ export function TypingCycle({ words, prefix = "I am a " }: { words: string[]; pr
 
   return (
     <span className="inline-flex items-center gap-0 font-mono text-sm md:text-base text-slate">
-      <span className="text-muted">{prefix}</span>
+      <span className="text-muted whitespace-pre">{prefix}</span>
       <span className="text-navy font-semibold">{text}</span>
       <span className="inline-block w-[2px] h-[1em] bg-gold ml-0.5 animate-blink" aria-hidden />
     </span>
