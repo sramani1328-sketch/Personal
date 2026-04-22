@@ -37,7 +37,7 @@ export function Hero({ eyebrow, h1, subheadline, body, primary, secondary, words
           backgroundSize: "56px 56px",
         }}
       />
-      <div className="relative container-page pt-20 sm:pt-24 pb-14 md:pb-20 md:min-h-[100vh] grid lg:grid-cols-[1.2fr_1fr] gap-10 md:gap-12 items-center">
+      <div className="relative container-page pt-10 sm:pt-16 md:pt-24 pb-14 md:pb-20 md:min-h-[100vh] grid lg:grid-cols-[1.2fr_1fr] gap-10 md:gap-12 items-center">
         <div>
           <p className="gold-rule mb-5 md:mb-6">{eyebrow}</p>
           <h1 className="font-display text-hero text-navy">{h1}</h1>
@@ -58,8 +58,8 @@ export function Hero({ eyebrow, h1, subheadline, body, primary, secondary, words
             <TypingCycle words={words} />
           </div>
         </div>
-        <div className="relative flex justify-center lg:justify-end order-first lg:order-last">
-          <div className="relative mx-auto w-full max-w-[360px]">
+        <div className="relative flex justify-center lg:justify-end">
+          <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[360px]">
             <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-navy shadow-cardHover">
               {headshot ? (
                 <Image src={headshot} alt="Shoaib Ramani" fill className="object-cover" priority sizes="(max-width: 1024px) 90vw, 340px" />
