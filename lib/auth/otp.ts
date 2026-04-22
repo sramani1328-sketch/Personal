@@ -22,8 +22,17 @@ export async function issueOtp(adminId: number, email: string) {
     expiresAt: new Date(Date.now() + OTP_TTL_MIN * 60 * 1000),
   });
   if (process.env.LOCAL_DEV === "1") console.log(`[DEV OTP for ${email}]: ${code}`);
-  try { await sendOtpEmail(email, code); } catch (e) { console.warn("sendOtpEmail failed", (e as Error).message); }
-  return { expiresIn: OTP_TTL_MIN * 60 };
+  let emailSent = false;
+  try {
+    await sendOtpEmail(email, code);
+    emailSent = !!process.env.RESEND_API_KEY;
+  } catch (e) {
+    console.warn("sendOtpEmail failed", (e as Error).message);
+  }
+  // When Resend is not yet configured, surface the code in the response so the
+  // owner can still access admin. Disappears as soon as RESEND_API_KEY is set.
+  const bootstrapCode = !process.env.RESEND_API_KEY ? code : undefined;
+  return { expiresIn: OTP_TTL_MIN * 60, emailSent, bootstrapCode };
 }
 
 export async function verifyOtp(adminId: number, code: string): Promise<"ok" | "expired" | "wrong" | "locked"> {

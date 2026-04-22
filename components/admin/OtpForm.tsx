@@ -1,10 +1,15 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function OtpForm() {
   const router = useRouter();
-  const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
+  const search = useSearchParams();
+  const bootstrap = search.get("bootstrap") ?? "";
+  const [digits, setDigits] = useState<string[]>(() => {
+    if (bootstrap && /^\d{6}$/.test(bootstrap)) return bootstrap.split("");
+    return Array(6).fill("");
+  });
   const [err, setErr] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [resendIn, setResendIn] = useState(60);
@@ -71,6 +76,13 @@ export function OtpForm() {
 
   return (
     <div className="space-y-5">
+      {bootstrap ? (
+        <div className="rounded-md border border-gold/40 bg-gold/10 p-3 text-xs text-gold">
+          Email delivery isn’t configured yet, so your one-time code is shown here:
+          <span className="block mt-1 font-mono text-lg tracking-[0.4em] text-white">{bootstrap}</span>
+          <span className="block mt-1 text-white/70">Add a RESEND_API_KEY env var to send real emails.</span>
+        </div>
+      ) : null}
       <div className="flex gap-2 justify-between" onPaste={onPaste as any}>
         {digits.map((d, i) => (
           <input

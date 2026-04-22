@@ -20,7 +20,13 @@ export function LoginForm() {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Login failed");
-      router.push("/admin/verify-otp");
+      if (json.bootstrapCode) {
+        // Carry the one-time setup code forward via query string so the
+        // verify page can show it. Remove this by setting RESEND_API_KEY.
+        router.push(`/admin/verify-otp?bootstrap=${encodeURIComponent(json.bootstrapCode)}`);
+      } else {
+        router.push("/admin/verify-otp");
+      }
     } catch (e: any) {
       setErr(e.message);
     } finally {

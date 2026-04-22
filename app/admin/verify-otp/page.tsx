@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import { OtpForm } from "@/components/admin/OtpForm";
 import { Monogram } from "@/components/ui/Monogram";
 
 export const metadata = { title: "Verify", robots: { index: false, follow: false } };
+export const dynamic = "force-dynamic";
 
 export default function VerifyPage() {
   return (
@@ -17,7 +19,9 @@ export default function VerifyPage() {
             We sent a 6-digit code to your admin email. It expires in 10 minutes.
           </p>
           <div className="mt-6">
-            <OtpForm />
+            <Suspense fallback={null}>
+              <OtpForm />
+            </Suspense>
           </div>
         </div>
       </div>

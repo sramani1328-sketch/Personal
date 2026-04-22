@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     const ok = await bcrypt.compare(body.data.password, hash);
     if (!adm || !ok) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
 
-    await issueOtp(adm.id, adm.email);
+    const otpResult = await issueOtp(adm.id, adm.email);
     const c = await cookies();
     c.set(PENDING_COOKIE, String(adm.id), {
       httpOnly: true,
@@ -30,7 +30,12 @@ export async function POST(req: Request) {
       path: "/",
       maxAge: 15 * 60,
     });
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({
+      ok: true,
+      ...(otpResult.bootstrapCode
+        ? { bootstrapCode: otpResult.bootstrapCode, bootstrapNote: "Email not yet configured. Use this code to sign in, then add RESEND_API_KEY to enable real delivery." }
+        : {}),
+    });
   } catch (e) {
     console.error(e);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
