@@ -2,6 +2,7 @@
 import { useState, useTransition } from "react";
 import { saveAbout, saveServices } from "@/lib/admin/actions";
 import { Card, Field, TextArea, GoldButton } from "@/components/admin/AdminUI";
+import { RichTextArea } from "@/components/admin/RichTextArea";
 import { ImageUploader } from "@/components/admin/ImageUploader";
 import { Repeater } from "@/components/admin/Repeater";
 import { FormFeedback } from "@/components/admin/SaveBar";
@@ -54,17 +55,19 @@ export function AboutEditor({
         <h2 className="font-display text-lg mb-4">About Copy</h2>
         <div className="grid gap-4">
           <Field label="Pull Quote" name="pull_quote" defaultValue={initial.pull_quote} />
-          <TextArea
-            label="Bio (HTML allowed)"
+          <RichTextArea
+            label="Bio"
             name="bio_html"
             defaultValue={initial.bio_html}
-            rows={10}
+            minHeight={260}
+            placeholder="Tell your story…"
           />
-          <TextArea
+          <RichTextArea
             label="Personal Touch"
             name="personal_touch"
             defaultValue={initial.personal_touch}
-            rows={3}
+            minHeight={120}
+            placeholder="A line that adds warmth…"
           />
           <ImageUploader name="headshot_url" defaultValue={initial.headshot_url} label="About Headshot" />
         </div>

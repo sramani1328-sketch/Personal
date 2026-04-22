@@ -3,7 +3,8 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { upsertExperience } from "@/lib/admin/actions";
-import { Card, Field, TextArea, GoldButton, GhostButton } from "@/components/admin/AdminUI";
+import { Card, Field, GoldButton, GhostButton } from "@/components/admin/AdminUI";
+import { RichTextArea } from "@/components/admin/RichTextArea";
 import { ImageUploader } from "@/components/admin/ImageUploader";
 import { StringListRepeater } from "@/components/admin/Repeater";
 import { FormFeedback } from "@/components/admin/SaveBar";
@@ -78,7 +79,7 @@ export function ExperienceEditor({ initial }: { initial: Init }) {
           <Field label="Location" name="location" defaultValue={initial.location} placeholder="Woburn, MA" />
           <div />
           <div className="md:col-span-2">
-            <TextArea label="Impact Statement" name="impact" defaultValue={initial.impact} rows={2} />
+            <RichTextArea label="Impact Statement" name="impact" defaultValue={initial.impact} minHeight={90} />
           </div>
           <div className="md:col-span-2">
             <ImageUploader name="logoUrl" defaultValue={initial.logoUrl} label="Company Logo" />

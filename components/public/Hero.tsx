@@ -42,7 +42,10 @@ export function Hero({ eyebrow, h1, subheadline, body, primary, secondary, words
           <p className="gold-rule mb-6">{eyebrow}</p>
           <h1 className="font-display text-hero text-navy">{h1}</h1>
           <h2 className="mt-4 text-h2 text-slate font-display">{subheadline}</h2>
-          <p className="mt-6 max-w-xl text-lead text-muted">{body}</p>
+          <div
+            className="mt-6 max-w-xl text-lead text-muted prose-hero [&_p]:my-2 [&_a]:text-gold [&_a]:underline [&_a]:underline-offset-2 [&_strong]:text-navy [&_strong]:font-semibold"
+            dangerouslySetInnerHTML={{ __html: body }}
+          />
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={primary.url} size="lg">
               {primary.label} <ArrowRight size={18} />

@@ -2,6 +2,7 @@
 import { useState, useTransition } from "react";
 import { saveHero } from "@/lib/admin/actions";
 import { Card, Field, TextArea, GoldButton } from "@/components/admin/AdminUI";
+import { RichTextArea } from "@/components/admin/RichTextArea";
 import { ImageUploader } from "@/components/admin/ImageUploader";
 import { Repeater, StringListRepeater } from "@/components/admin/Repeater";
 import { FormFeedback } from "@/components/admin/SaveBar";
@@ -57,7 +58,12 @@ export function HeroEditor({
             <Field label="Subheadline" name="subheadline" defaultValue={initial.subheadline} />
           </div>
           <div className="md:col-span-2">
-            <TextArea label="Body" name="body" defaultValue={initial.body} rows={4} />
+            <RichTextArea
+              label="Body"
+              name="body"
+              defaultValue={initial.body}
+              placeholder="Working directly with the CEO…"
+            />
           </div>
         </div>
       </Card>

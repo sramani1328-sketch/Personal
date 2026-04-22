@@ -28,7 +28,10 @@ export function ExperienceSnapshot({ items }: { items: Exp[] }) {
                 </p>
                 <h3 className="mt-2 font-display text-lg font-semibold text-navy">{e.company}</h3>
                 <p className="text-slate text-sm italic">{e.role}</p>
-                <p className="mt-3 text-muted text-sm leading-relaxed">{e.impact}</p>
+                <div
+                  className="prose prose-sm max-w-none mt-3 text-muted text-sm leading-relaxed [&_p]:my-1 [&_ul]:my-1 [&_strong]:text-navy"
+                  dangerouslySetInnerHTML={{ __html: e.impact || "" }}
+                />
               </div>
             </Reveal>
           ))}
